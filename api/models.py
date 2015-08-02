@@ -9,6 +9,11 @@ class Product(models.Model):
     producer = models.ForeignKey(Group, default=None, blank=True,
         null=True)
 
+    def ownerName(self):
+        if self.producer:
+            return self.producer.name
+        return None
+
     def __unicode__(self):
         return "{0} -- {1}".format(self.id, self.name)
 

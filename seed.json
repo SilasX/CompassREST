@@ -83,5 +83,14 @@
    },
    "model": "api.product",
    "pk": 1
+},
+{
+   "fields": {
+      "name": "Long Branch",
+      "producer": null,
+      "description": "Just some branches we found in the woods somewhere."
+   },
+   "model": "api.product",
+   "pk": 2
 }
 ]
