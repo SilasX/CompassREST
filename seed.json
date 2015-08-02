@@ -1,0 +1,87 @@
+[
+{
+   "fields": {
+      "name": "The Corporation",
+      "permissions": []
+   },
+   "model": "auth.group",
+   "pk": 1
+},
+{
+   "fields": {
+      "username": "silas",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2015-08-02T00:18:43.820Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$12000$wQVVN6N1SVbQ$X1iB3D2MpYSMiRNcE4jWv96V9s4AQv1PGboRJDCeZKc=",
+      "email": "",
+      "date_joined": "2015-08-01T22:44:52.279Z"
+   },
+   "model": "auth.user",
+   "pk": 1
+},
+{
+   "fields": {
+      "username": "noncorp",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2015-08-02T00:13:58.971Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$12000$lidBari2Yl3F$wNSUfZv3O6Ve/shlf95kCl5Ec3mg9HOdO3KL3ob9GOw=",
+      "email": "",
+      "date_joined": "2015-08-02T00:13:58.971Z"
+   },
+   "model": "auth.user",
+   "pk": 2
+},
+{
+   "fields": {
+      "username": "corp",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": false,
+      "is_staff": false,
+      "last_login": "2015-08-02T00:14:20Z",
+      "groups": [
+         [
+            "The Corporation"
+         ]
+      ],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$12000$B4DpWX4o0rgt$p1HzMRriazrQpzgW+5V8Bul2XAJN6FI/1tqag8KP0WY=",
+      "email": "",
+      "date_joined": "2015-08-02T00:14:20Z"
+   },
+   "model": "auth.user",
+   "pk": 3
+},
+{
+   "fields": {
+      "domain": "example.com",
+      "name": "example.com"
+   },
+   "model": "sites.site",
+   "pk": 1
+},
+{
+   "fields": {
+      "name": "25 kg Weight ",
+      "producer": [
+         "The Corporation"
+      ],
+      "description": "A nice awesome weight for weightlifting designed by the Corporation."
+   },
+   "model": "api.product",
+   "pk": 1
+}
+]

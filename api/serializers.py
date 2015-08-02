@@ -19,4 +19,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
-        fields = ('name', 'description')
+        fields = ('name', 'description', 'producer')
