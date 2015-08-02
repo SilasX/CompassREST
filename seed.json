@@ -15,7 +15,7 @@
       "is_active": true,
       "is_superuser": true,
       "is_staff": true,
-      "last_login": "2015-08-02T00:18:43.820Z",
+      "last_login": "2015-08-02T02:44:10.360Z",
       "groups": [],
       "user_permissions": [],
       "password": "pbkdf2_sha256$12000$wQVVN6N1SVbQ$X1iB3D2MpYSMiRNcE4jWv96V9s4AQv1PGboRJDCeZKc=",
@@ -51,7 +51,7 @@
       "is_active": true,
       "is_superuser": false,
       "is_staff": false,
-      "last_login": "2015-08-02T00:14:20Z",
+      "last_login": "2015-08-02T00:36:25.723Z",
       "groups": [
          [
             "The Corporation"
@@ -91,6 +91,30 @@
       "description": "Just some branches we found in the woods somewhere."
    },
    "model": "api.product",
+   "pk": 2
+},
+{
+   "fields": {
+      "product": 2,
+      "volumeAvailable": 10,
+      "dateListed": "2015-08-01T22:50:42.384470",
+      "seller": [
+         "noncorp"
+      ]
+   },
+   "model": "api.selllisting",
+   "pk": 1
+},
+{
+   "fields": {
+      "product": 1,
+      "volumeAvailable": 30,
+      "dateListed": "2015-08-01T22:51:42.394470",
+      "seller": [
+         "corp"
+      ]
+   },
+   "model": "api.selllisting",
    "pk": 2
 }
 ]

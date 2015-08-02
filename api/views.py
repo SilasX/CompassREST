@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
 from api.serializers import (UserSerializer, GroupSerializer,
-    ProductSerializer)
+    ProductSerializer, SellListingSerializer)
 
 # Models we add
-from api.models import Product
+from api.models import Product, SellListing
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -40,10 +40,43 @@ class ProductPermission(permissions.BasePermission):
 
 class ProductViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows products to be viewed or edited.
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = (ProductPermission, )
 
 
+# Permissions
+class SellListingPermission(permissions.BasePermission):
+
+    def has_object_permission(self, request, view, obj):
+        # Anyone can view
+        if request.method == "GET":
+            return True
+        # Only logged in users can create
+        elif request.method == "POST":
+            return user.is_authenticated()
+        # Only the seller can modify
+        elif request.method in ("PATCH", "PUT", "DELETE"):
+            user = request.user
+            seller = obj.producer
+            if user.is_authenticated() and user == seller:
+                return True
+            return False
+        return False
+
+
+class SellListingViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows sell listings to be viewed or edited.
+    """
+    queryset = SellListing.objects.all()
+    serializer_class = SellListingSerializer
+    permission_classes = (SellListingPermission, )
+
+    def perform_create(self, serializer):
+        serializer.save(seller=self.request.user)
+
+    def perform_update(self, serializer):
+        serializer.save(seller=self.request.user)

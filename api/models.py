@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 
 # Create your models here.
 
@@ -18,5 +18,12 @@ class Product(models.Model):
         return "{0} -- {1}".format(self.id, self.name)
 
 
-#class SellListing(models.Model):
-#    product = models.ForeignKey(
+class SellListing(models.Model):
+    product = models.ForeignKey(Product)
+    dateListed = models.CharField(max_length=32, blank=True)
+    volumeAvailable = models.IntegerField()
+    seller = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return "{0} -- {1} -- {2}".format(self.seller.username,
+            self.product.name, self.volumeAvailable)
