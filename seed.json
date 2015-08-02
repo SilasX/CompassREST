@@ -9,13 +9,21 @@
 },
 {
    "fields": {
+      "name": "Credit Union",
+      "permissions": []
+   },
+   "model": "auth.group",
+   "pk": 2
+},
+{
+   "fields": {
       "username": "silas",
       "first_name": "",
       "last_name": "",
       "is_active": true,
       "is_superuser": true,
       "is_staff": true,
-      "last_login": "2015-08-02T02:44:10.360Z",
+      "last_login": "2015-08-02T09:13:57.511Z",
       "groups": [],
       "user_permissions": [],
       "password": "pbkdf2_sha256$12000$wQVVN6N1SVbQ$X1iB3D2MpYSMiRNcE4jWv96V9s4AQv1PGboRJDCeZKc=",
@@ -51,7 +59,7 @@
       "is_active": true,
       "is_superuser": false,
       "is_staff": false,
-      "last_login": "2015-08-02T00:36:25.723Z",
+      "last_login": "2015-08-02T07:53:41.800Z",
       "groups": [
          [
             "The Corporation"
@@ -75,11 +83,11 @@
 },
 {
    "fields": {
-      "price": "10.00",
-      "name": "25 kg Weight ",
-      "producer": [
+      "owner": [
          "The Corporation"
       ],
+      "price": "10.00",
+      "name": "weight",
       "description": "A nice awesome weight for weightlifting designed by the Corporation."
    },
    "model": "api.product",
@@ -87,9 +95,9 @@
 },
 {
    "fields": {
+      "owner": null,
       "price": "10.00",
       "name": "Long Branch",
-      "producer": null,
       "description": "Just some branches we found in the woods somewhere."
    },
    "model": "api.product",
@@ -97,7 +105,48 @@
 },
 {
    "fields": {
+      "owner": [
+         "The Corporation"
+      ],
+      "price": "10.00",
+      "name": "Bushel of Apples",
+      "description": "Fresh apples from the farm"
+   },
+   "model": "api.product",
+   "pk": 3
+},
+{
+   "fields": {
+      "owner": [
+         "Credit Union"
+      ],
+      "price": "8.02",
+      "name": "2x4's",
+      "description": "Standard size two-by-fours"
+   },
+   "model": "api.product",
+   "pk": 4
+},
+{
+   "fields": {
+      "name": "Downtown San Francisco",
+      "description": "{\"meta\": \"downtown\", \"city\": \"San Francisco, CA\"}"
+   },
+   "model": "api.location",
+   "pk": 1
+},
+{
+   "fields": {
+      "name": "South Bay",
+      "description": "{\"meta\": \"metro area\", \"city\": \"San Jose, CA\"}"
+   },
+   "model": "api.location",
+   "pk": 2
+},
+{
+   "fields": {
       "product": 2,
+      "location": 2,
       "volumeAvailable": 10,
       "dateListed": "2015-08-01T22:50:42.384470",
       "seller": [
@@ -110,6 +159,7 @@
 {
    "fields": {
       "product": 1,
+      "location": null,
       "volumeAvailable": 30,
       "dateListed": "2015-08-01T22:51:42.394470",
       "seller": [
@@ -118,5 +168,44 @@
    },
    "model": "api.selllisting",
    "pk": 2
+},
+{
+   "fields": {
+      "product": 2,
+      "location": 2,
+      "volumeAvailable": 1000,
+      "dateListed": "2015-08-02T02:32:11.066034",
+      "seller": [
+         "corp"
+      ]
+   },
+   "model": "api.selllisting",
+   "pk": 3
+},
+{
+   "fields": {
+      "product": 2,
+      "location": 1,
+      "volumeAvailable": 1000,
+      "dateListed": "2015-08-02T02:33:32.570136",
+      "seller": [
+         "corp"
+      ]
+   },
+   "model": "api.selllisting",
+   "pk": 4
+},
+{
+   "fields": {
+      "product": 4,
+      "location": 1,
+      "volumeAvailable": 500,
+      "dateListed": "2015-08-02T02:46:46.779214",
+      "seller": [
+         "silas"
+      ]
+   },
+   "model": "api.selllisting",
+   "pk": 5
 }
 ]

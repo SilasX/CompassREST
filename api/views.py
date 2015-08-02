@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
 from api.serializers import (UserSerializer, GroupSerializer,
-    ProductSerializer, SellListingSerializer)
+    ProductSerializer, SellListingSerializer, LocationSerializer)
 
 # Models we add
-from api.models import Product, SellListing
+from api.models import Product, SellListing, Location
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -80,3 +80,11 @@ class SellListingViewSet(viewsets.ModelViewSet):
 
     def perform_update(self, serializer):
         serializer.save(seller=self.request.user)
+
+
+class LocationViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer

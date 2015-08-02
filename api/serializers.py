@@ -3,7 +3,7 @@ from datetime import datetime
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
-from api.models import Product, SellListing
+from api.models import Product, SellListing, Location
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -55,6 +55,12 @@ class SellListingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SellListing
         #fields = ('product_id', 'dateListed', 'volumeAvailable',
-        fields = ('url', 'product', 'productName', 'productDescription',
-            'productPrice', 'productOwnerName', 'dateListed',
-            'volumeAvailable', 'seller', 'sellerName',)
+        fields = ('url', 'location', 'locationName', 'product', 'productName',
+            'productDescription', 'productPrice', 'productOwnerName',
+            'dateListed', 'volumeAvailable', 'seller', 'sellerName',)
+
+
+class LocationSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Location
+        fields = ('url', 'name', 'description',)

@@ -16,7 +16,16 @@ class Product(models.Model):
         return None
 
     def __unicode__(self):
-        return "{0} -- {1}".format(self.id, self.name)
+        return "{0}".format(self.name)
+
+
+class Location(models.Model):
+    name = models.CharField(max_length=256, unique=True)
+    # Any data needed to help locate it
+    description = models.TextField()
+
+    def __unicode__(self):
+        return "{0}".format(self.name)
 
 
 class SellListing(models.Model):
@@ -24,6 +33,8 @@ class SellListing(models.Model):
     dateListed = models.CharField(max_length=32, blank=True)
     volumeAvailable = models.IntegerField()
     seller = models.ForeignKey(User)
+    location = models.ForeignKey(Location, default=None, blank=True,
+        null=True)
 
     # looked-up values, flat
     def productName(self):
@@ -40,10 +51,14 @@ class SellListing(models.Model):
             return self.product.owner.name
         return None
 
+    def locationName(self):
+        if self.location:
+            return self.location.name
+        return None
+
     def sellerName(self):
         return self.seller.username
 
     def __unicode__(self):
-
         return "{0} -- {1} -- {2}".format(self.seller.username,
             self.product.name, self.volumeAvailable)

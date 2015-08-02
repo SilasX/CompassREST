@@ -10,6 +10,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'products', views.ProductViewSet)
 router.register(r'selllistings', views.SellListingViewSet)
+router.register(r'locations', views.LocationViewSet)
 
 
 admin.autodiscover()
