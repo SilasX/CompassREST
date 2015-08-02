@@ -7,12 +7,12 @@ class Product(models.Model):
     name = models.CharField(max_length=256)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=12)
-    producer = models.ForeignKey(Group, default=None, blank=True,
+    owner = models.ForeignKey(Group, default=None, blank=True,
         null=True)
 
     def ownerName(self):
-        if self.producer:
-            return self.producer.name
+        if self.owner:
+            return self.owner.name
         return None
 
     def __unicode__(self):
@@ -32,11 +32,16 @@ class SellListing(models.Model):
     def productDescription(self):
         return self.product.description
 
+    def productPrice(self):
+        return self.product.price
+
+    def productOwnerName(self):
+        if self.product.owner:
+            return self.product.owner.name
+        return None
+
     def sellerName(self):
         return self.seller.username
-
-    def sellerUrl(self):
-        return self.seller.url
 
     def __unicode__(self):
 

@@ -21,8 +21,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
-        fields = ('url', 'name', 'description', 'producer', 'price',
-            'ownerName')
+        fields = ('url', 'name', 'description', 'owner', 'ownerName',
+            'price',)
 
 
 # Stupid, roundabout way of doing primary keys since nothing else worked
@@ -56,4 +56,5 @@ class SellListingSerializer(serializers.HyperlinkedModelSerializer):
         model = SellListing
         #fields = ('product_id', 'dateListed', 'volumeAvailable',
         fields = ('url', 'product', 'productName', 'productDescription',
-            'dateListed', 'volumeAvailable', 'seller', 'sellerName',)
+            'productPrice', 'productOwnerName', 'dateListed',
+            'volumeAvailable', 'seller', 'sellerName',)
