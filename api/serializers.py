@@ -48,7 +48,7 @@ class SellListingSerializer(serializers.HyperlinkedModelSerializer):
     #    queryset=Product.objects.all())
     product = ProductField()
     dateListed = serializers.CharField(max_length=32, allow_blank=True,
-        initial=now_string)
+        initial=now_string(), required=False, allow_null=True)
     seller = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(), required=False, allow_null=True)
     class Meta:

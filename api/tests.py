@@ -65,8 +65,15 @@ class TestSellListings(APITestCase):
         self.assertEqual(response.status_code, 400)
         # The same for missing fields
         values = {
-            "product": 30,
-            "volumeAvailable": 10,
+            "product": 1,
+            "dateListed": '2015-08-01T20:02:04.025026',
         }
         response = self.client.post('/selllistings/', values)
         self.assertEqual(response.status_code, 400)
+        # ... but okay to leave out datetime
+        values = {
+            "product": 1,
+            "volumeAvailable": 10,
+        }
+        response = self.client.post('/selllistings/', values)
+        self.assertEqual(response.status_code, 201)
