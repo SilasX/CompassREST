@@ -43,7 +43,7 @@ class TestSellListings(APITestCase):
     def setUp(self):
         pass
 
-    def test_product1(self):
+    def test_sell_listing(self):
         self.client.login(username="corp", password="hunter2")
         values = {
             "product": 1,
@@ -77,3 +77,13 @@ class TestSellListings(APITestCase):
         }
         response = self.client.post('/selllistings/', values)
         self.assertEqual(response.status_code, 201)
+        # Creator should be able to modify
+        patch_values = {
+            "volumeAvailable": 11,
+        }
+        response = self.client.patch('/selllistings/3/', patch_values)
+        self.assertEqual(response.status_code, 200)
+        # Non-creator should not be able to modify
+        self.client.login(username="noncorp", password="hunter2")
+        response = self.client.patch('/selllistings/3/', patch_values)
+        self.assertEqual(response.status_code, 403)

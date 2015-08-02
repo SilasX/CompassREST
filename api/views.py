@@ -60,7 +60,7 @@ class SellListingPermission(permissions.BasePermission):
         # Only the seller can modify
         elif request.method in ("PATCH", "PUT", "DELETE"):
             user = request.user
-            seller = obj.producer
+            seller = obj.seller
             if user.is_authenticated() and user == seller:
                 return True
             return False
