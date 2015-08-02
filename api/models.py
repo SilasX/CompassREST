@@ -6,6 +6,7 @@ from django.contrib.auth.models import Group, User
 class Product(models.Model):
     name = models.CharField(max_length=256)
     description = models.TextField()
+    price = models.DecimalField(decimal_places=2, max_digits=12)
     producer = models.ForeignKey(Group, default=None, blank=True,
         null=True)
 

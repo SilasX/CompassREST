@@ -21,7 +21,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
-        fields = ('name', 'description', 'producer', 'ownerName')
+        fields = ('url', 'name', 'description', 'producer', 'price',
+            'ownerName')
 
 
 # Stupid, roundabout way of doing primary keys since nothing else worked

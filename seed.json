@@ -75,6 +75,7 @@
 },
 {
    "fields": {
+      "price": "10.00",
       "name": "25 kg Weight ",
       "producer": [
          "The Corporation"
@@ -86,6 +87,7 @@
 },
 {
    "fields": {
+      "price": "10.00",
       "name": "Long Branch",
       "producer": null,
       "description": "Just some branches we found in the woods somewhere."
