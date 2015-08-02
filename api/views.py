@@ -32,8 +32,8 @@ class ProductPermission(permissions.BasePermission):
         else:
             user = request.user
             groups = user.groups.all()
-            producer = obj.producer
-            if user.is_authenticated() and producer in groups:
+            owner = obj.owner
+            if user.is_authenticated() and owner in groups:
                 return True
             return False
 
