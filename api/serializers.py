@@ -47,13 +47,13 @@ def now_string():
 class SellListingSerializer(serializers.HyperlinkedModelSerializer):
     #product_id = serializers.PrimaryKeyRelatedField(
     #    queryset=Product.objects.all())
-    product = ProductField()
+    #product = ProductField()
     dateListed = serializers.CharField(max_length=32, allow_blank=True,
         initial=now_string(), required=False, allow_null=True)
-    seller = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(), required=False, allow_null=True)
+    #seller = serializers.PrimaryKeyRelatedField(
+    #    queryset=User.objects.all(), required=False, allow_null=True)
     class Meta:
         model = SellListing
         #fields = ('product_id', 'dateListed', 'volumeAvailable',
-        fields = ('url', 'product', 'dateListed', 'volumeAvailable',
-            "seller")
+        fields = ('url', 'product', 'productName', 'productDescription',
+            'dateListed', 'volumeAvailable', 'seller', 'sellerName',)

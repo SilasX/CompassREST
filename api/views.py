@@ -56,7 +56,7 @@ class SellListingPermission(permissions.BasePermission):
             return True
         # Only logged in users can create
         elif request.method == "POST":
-            return user.is_authenticated()
+            return request.user.is_authenticated()
         # Only the seller can modify
         elif request.method in ("PATCH", "PUT", "DELETE"):
             user = request.user
